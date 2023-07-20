@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Making simulations useful. PhD candidate at <a href='https://www.ucl.ac.uk/civil-environmental-geomatic-engineering/research/groups-centres-and-sections/behaviour-infrastructure-group'>UCL BIG</a>. London.
+subtitle: <b> Making simulations useful. PhD candidate at UCL BIG. London.</b>
 
 profile:
   align: right
@@ -11,13 +11,20 @@ profile:
   address:
 
 news: false  # includes a list of news items
-latest_posts: true  # includes a list of the newest posts
+latest_posts: false  # includes a list of the newest posts
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am an *incoming* PhD candidate at UCL's Behaviour and Infrastructure Group ([BIG](https://www.ucl.ac.uk/civil-environmental-geomatic-engineering/research/groups-centres-and-sections/behaviour-infrastructure-group)). My supervisors are Drs [Tim Hillel](https://www.ucl.ac.uk/civil-environmental-geomatic-engineering/people/dr-tim-hillel) and [María Pérez-Ortiz](https://www.mariaperezortiz.com/). I'm also open to temporary and part time work ([email me](mailto:fredjshone@gmail.com)).
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+I like simulation based approaches for modelling massive human systems - such as the transition to electric vehicles, or more specifically, *how are we gonna charge all these new batteries on wheels?*
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+I have a background in engineering (soft and civil), economics and policy. But most of all I like to build things. My most formative experience is five years Technical Lead for Arup's [City Modelling Lab (CML)](https://www.arup.com/services/digital/city-modelling-lab). CML started as a scrappy rough and tumble research project, and is now the UKs premier Agent-Based Transport/Energy Modelling outfit (or so i say). You can read about our exploits [here](https://medium.com/arupcitymodelling).
+
+
+I'm a pretty handy data scientist and software engineer. I am the author of [pam](https://github.com/arup-group/pam), a python tool for working with activity chains. Arup now supports pam - you can watch a fancy corporate video [here](https://www.youtube.com/watch?v=F3MLi96aisY). I've also build [mc](https://github.com/arup-group/mc) and [elara](https://github.com/arup-group/elara) to help people use (the infamous) [MATSim](https://www.matsim.org/).
+
+I can thrash around usefully in a range of languages. I engage in established software engineering practices. *Sometimes* I write tests first.
+
+Still reading? Thanks! This site is a place for me to find work, but also keep my sanity through (i) connecting with people and (ii) keeping a record of what I'm doing (hi mom! - I'm ok). I like to climb, play ultimate and talk about plants.
