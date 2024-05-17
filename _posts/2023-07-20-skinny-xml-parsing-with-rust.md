@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Overthinking a Skinny XML Parser
+title: Overthinking a Skinny XML Parser with Rust
 date: 2023-07-20 10:14:00-0400
-description: building a parser for MATSim network format
+description: a Rust parser for MATSim network format
 tags: MATSim Rust parsing xml
 categories:
 giscus_comments: false
@@ -10,7 +10,7 @@ related_posts: false
 toc:
   sidebar: left
 ---
-Gonna build a nice fast xml parser for the MATSim network format. Using Rust, roughly as follows:
+Building a fast xml parser for the MATSim network format. Using Rust. Contents roughly as follows:
 
 - Problem statement
 - xml format
@@ -19,26 +19,26 @@ Gonna build a nice fast xml parser for the MATSim network format. Using Rust, ro
 - Benchmark
 - Fiddling
 
-I've built similar stuff before but I'm pretty keen to meddle with the implementation in a systematic way. I'm going to hunt down something fast and skinny.
-
 # Problem statement
 
 I have a big project in mind. For which parsing and holding some big data structures in memory is only a tiny part. But a nice enough place to start. 
 
-I am going to read a MATSim network file (an xml, typically gzip) and store it (but just the bits i need) in memory. Road networks are most usefully represented as (directed) graphs, where junctions are vertices/nodes and the links between them edges. But for starters, I'm just going to focus on link lengths.
+I am going to read a MATSim *network* file (an xml) and store it (but just the bits i need) in memory. in this case *network* is referring to transport *network*, ie roads, rail etc.
 
-I want to get these lengths into memory fast, but in the grandiose scheme of things, it's going to be more useful to have (i) a really fast to access data structure, and (ii) minimal memory impact. Fast creation of this data structure is actually just a nice to have.
+networks are usefully represented as (directed) graphs, where junctions are vertices/nodes and the links between them edges. But for starters, I'm just going to focus on reading the link lengths only.
+
+I want to get these lengths into memory fast. But in the grandiose scheme of things, I want to access access and potentially duplicate the data quickly. So it's going to be more useful to have (i) a really fast to access data structure, and (ii) minimal memory impact.
 
 ---
 **NOTE**
 
-*Fast data structure?* - I mean that I want to be able to get the length of a link as quickly as possible using the link name.
+*Fast data structure?* - I mean that, given a link id, I want to be able to get the length of that link as quickly as possible.
 
 ---
 
 # MATSim XML Format
 
-The input data format is a MATSim network file:
+[MATSim](https://www.matsim.org/) (Multi Agent Transport Simulation) is a big open source project. The full scope of which is beyond this post. So we just focus in on the MATSim network file format:
 
 ```xml
 <network>
@@ -58,7 +58,7 @@ The input data format is a MATSim network file:
 
 ```
 
-Two things to note at this point; (i) nodes (vertices if you're still graph thinking) are defined first, then (ii) links are defined second and contain the desired length attribute.
+Two things to note at this point; (i) nodes (vertices if you're graph thinking) are defined first, then (ii) links are defined second and contain the desired length attribute.
 
 To get us started we're going to parse into the following structure:
 
@@ -94,7 +94,7 @@ Then we're going to test and establish some benchmarks for:
 
 Then we're going to try out a few obvious improvements:
 
-- relentlessly stress about using String and or clone
+- stress about using String and or clone
 - squeeze the data types
 - completely reimagine how we are going to be able to use the data (ie reindex and use an array)
 
